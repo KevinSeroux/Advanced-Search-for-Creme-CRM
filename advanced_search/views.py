@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 from django.template.context import RequestContext
 from django.utils.translation import ugettext as _
 from creme.creme_core.core.search import Searcher
+from creme.creme_core.registry import creme_registry
 from creme.creme_core.utils import get_ct_or_404
 from creme.creme_core.models import EntityCredentials, CremeProperty, \
                                     CremePropertyType
