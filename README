@@ -1,4 +1,28 @@
 Advanced Search for Crème is a module for Crème CRM 1.4.
 http://www.cremecrm.com/
 
-It enables to search properties among a list of entities. It provides an advanced search page (see menu).
+It enables to search properties among a list of entities. It provides an advanced search page acessible from the left menu.
+
+
+REMARK AND CONCLUSION OF THE PROJECT:
+
+The source code views.h is widely inspired from creme/creme_core/views/search.py.
+And It was difficult to understand some bits of code such as the interaction with the Searcher class. That's why, I try to explain how the search works with comments in my code... if it can help others to also contribute to Creme.
+
+The main problem in Creme while I was developing the module is the fact to spend too much time to understand how to use the classes, functions provided by Creme. There is a very poor documentation so we have to look over the callstack.
+
+
+INSTALL:
+
+1. You have to move the opportunity_number folder into the creme folder which contains all the others modules such as activesync, activites, ...
+
+2 - Add the module 'creme.advanced_search' into the INSTALLED_CREME_APPS tuple in your settings file (local_setting.py).
+
+8 - The module is ready, you can now launch Crème.
+
+
+TROUBLESHOOTINGS:
+- It's possible you get very bad performance when you proceed to an advanced search. I will do my best to improve that.
+
+
+Do not hesit to contact me.
