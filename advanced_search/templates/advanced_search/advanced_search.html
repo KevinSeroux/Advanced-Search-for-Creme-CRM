@@ -1,0 +1,56 @@
+{% extends "creme_core/base.html" %}
+{% load i18n %}
+{% load creme_block creme_core_tags %}
+
+{% block content %}
+  {% block view_title %}
+    <table class="table_header" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="5%"><img src="{% creme_media_url 'images/search_64.png' %}" border="0" title="{{title}}" alt="{{title}}" /></td>
+        <td width="95%"><h1>{% trans "Advanced search" %}</h1></td>
+      </tr>
+    </table>
+  {% endblock %}
+
+  <form method="post">{% csrf_token %}
+   <div style="float: left; margin-right: 50px;">
+     <label>{% trans "Search among: " %}</label><br/>
+
+       <select multiple style="height: 500px;" name="models_IDs">
+         {% for ct in content_types %}
+           <option value="{{ct.id}}">{{ct.verbose_name}}</option>
+         {% endfor %}
+       </select><br/><br/>
+        
+    </div>
+    <div>
+
+      <label>{% trans "Choose properties (optional):" %}</label><br/>
+      <select data-placeholder="Choose properties" class="chosen-select" name="props" multiple>
+        {% for prop in props %}
+          <option value="{{ prop.id }}">{{ prop.text }}</option>
+        {% endfor %}
+        </select><br/><br/>
+        
+        <label>{% trans "Search terms (required if no properties provided):" %}</label><br/>
+        <input type="text" name="research_terms" /><br/><br/>
+
+
+      </div>
+    <input type="submit" value="{% trans "Research" %}"/>
+  </form>
+{% endblock %}
+
+{% block after_content_3 %}</div>
+  <script type="text/javascript">
+    var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+  </script>{% endblock %}
