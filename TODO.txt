@@ -2,3 +2,5 @@
 - Improve the algorithm
 - Further comment the search algorithm in views.py
 - List the properties on the search result page
+- Translations
+- Add colors to properties?
