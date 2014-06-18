@@ -9,8 +9,6 @@ REMARK AND CONCLUSION OF THE PROJECT:
 The source code views.h is widely inspired from creme/creme_core/views/search.py.
 And It was difficult to understand some bits of code such as the interaction with the Searcher class. That's why, I try to explain how the search works with comments in my code... if it can help others to also contribute to Creme.
 
-The main problem in Creme while I was developing the module is the fact to spend too much time to understand how to use the classes, functions provided by Creme. There is a very poor documentation so we have to look over the callstack.
-
 
 INSTALL:
 
