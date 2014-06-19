@@ -40,7 +40,7 @@
                         <table class="table_detail_view ui-corner-all with-header">
                             <thead>
                                 <tr>
-                                    <th colspan="{{fields|length|add:1}}" valign="middle" align="left">
+                                    <th colspan="{{fields|length|add:2}}" valign="middle" align="left">
                                         {{entities|length}}
                                         {% if entities|length == 1 %}{% comment %}TODO: improve plural management...{% endcomment %}
                                             {{result.model|get_meta_value:"verbose_name"}}
@@ -56,6 +56,7 @@
                                     {% for field in fields %}
                                         <th class="{% cycle "block_header_line_dark" "block_header_line_light" %}">{{field}}</th>
                                     {% endfor %}
+				    <th class="{% cycle "block_header_line_dark" "block_header_line_light" %}">{% trans 'Properties' %}</th>
                                 </tr>
                                 {% for entity in entities %}
                                     <tr class="{% cycle "block_line_dark" "block_line_light" %} content">
@@ -63,6 +64,11 @@
                                         {% for field in fields %}
                                             <td>{% print_field object=entity field=field.field %}</td>
                                         {% endfor %}
+					<td><ul>
+					  {% for prop in entity.props %}
+                                            <li>{{ prop }}</li>
+                                          {% endfor %}
+					</ul></td>
                                     </tr>
                                 {% endfor %}
                             </tbody>

@@ -95,6 +95,11 @@ def search(request):
                         else: # We remove it because we are looking for props
                             entities.remove(entity)
 
+                for entity in entities:
+                    props_IDs = CremeProperty.objects.filter(creme_entity_id = entity.id)
+                    props = CremeProperty.objects.filter(id = props_IDs)
+                    entity.props = props
+
                 total += len(entities)
                 results.append({'model':    model,
                                 'fields':   searcher.get_fields(model),
