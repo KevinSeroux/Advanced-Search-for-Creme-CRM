@@ -106,7 +106,11 @@ def search(request):
             t_ctx['results'] = results
             t_ctx['research'] = post_research_terms
             t_ctx['models'] = [model._meta.verbose_name for model in models]
+            t_ctx['props'] = []
 
+            for post_prop_ID in post_props_IDs:
+               prop = CremePropertyType.objects.get(id=post_prop_ID)
+               t_ctx['props'].append(prop.text)
 
         return HttpResponse(render_to_string \
           ("advanced_search/search_results.html", t_ctx, \

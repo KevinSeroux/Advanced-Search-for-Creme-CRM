@@ -19,8 +19,9 @@
                 <tr>
                     <td><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span></td>
                     <td>
-                        {% if research %}{% trans 'Your search : ' %}{{research}}<br/>{% endif %}
-                        {% if models %}{% trans 'Concerned types : ' %}{{models|join:", "}}<br/>{% endif %}
+                        {% if research %}<strong>{% trans 'Your search : ' %}</strong>{{research}}<br/>{% endif %}
+                        {% if models %}<strong>{% trans 'Concerned types : ' %}</strong>{{models|join:", "}}<br/>{% endif %}
+			{% if props %}<strong>{% trans 'Concerned properties : ' %}</strong>{{props|join:", "}}<br/>{% endif %}
                     </td>
                 </tr>
             </table>
