@@ -20,7 +20,7 @@ def advanced_search(models_IDs, research_terms, props_IDs, user):
     else:
         # Add just the requested models
         for model_ID in models_IDs:
-            models.append(get_ct_or_404(post_model_ID).model_class())
+            models.append(get_ct_or_404(model_ID).model_class())
 
     if(len(models) > 1): # Useless to sort when we have only one model
         models.sort(key=lambda m: m._meta.verbose_name)
